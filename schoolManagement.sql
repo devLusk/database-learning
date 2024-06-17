@@ -60,7 +60,26 @@ INSERT INTO notes(student_id, subjects_id, note) VALUES
 (2, 2, 78),
 (3, 3, 92),
 (4, 2, 80),
-(5, 3, 88),
+(5, 4, 88),
 (6, 1, 90);
 
--- TODO: Realizar consultas para listar alunos de uma turma específica, notas de um aluno em disciplinas, média geral dos alunos, etc.
+-- Seleciona todos os registros de cada tabela
+SELECT * FROM students;
+SELECT * FROM subjects;
+SELECT * FROM teachers;
+SELECT * FROM notes;
+
+-- Seleciona todos os alunos de uma classe específica
+SELECT * FROM students WHERE class_name = "Class A-01";
+
+-- Seleção com INNER JOIN
+SELECT
+    students.name AS student_name,
+    subjects.name AS subject_name,
+    notes.note
+FROM notes
+INNER JOIN students ON notes.student_id = students.id
+INNER JOIN subjects ON notes.subjects_id = subjects.id;
+
+-- Calcula a nota média
+SELECT AVG(note) FROM notes;
