@@ -71,3 +71,13 @@ INSERT INTO tasks (name, description, project_id, creation_date, expiration_date
 ('Task 3', 'Descrição da Tarefa 3', 2, '2024-07-05', '2024-07-15', 'Completo'),
 ('Task 4', 'Descrição da Tarefa 4', 2, '2024-07-10', '2024-07-20', 'Pendente'),
 ('Task 5', 'Descrição da Tarefa 5', 3, '2024-08-05', '2024-08-15', 'Progresso');
+
+-- Métodos de select
+SELECT * FROM users;
+SELECT * FROM projects;
+SELECT * FROM tasks;
+
+SELECT * FROM projects WHERE user_id = 1;
+SELECT * FROM tasks WHERE project_id = 1 ORDER BY expiration_date;
+
+SELECT * FROM projects WHERE end_date < CURDATE();
