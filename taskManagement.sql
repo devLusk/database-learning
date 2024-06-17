@@ -26,7 +26,7 @@ CREATE TABLE tasks (
     project_id INT NOT NULL,
     creation_date DATE NOT NULL,
     expiration_date DATE NOT NULL,
-    status VARCHAR(10) NOT NULL
+    status VARCHAR(9) NOT NULL
 );
 
 -- Adicionando Constraints
@@ -53,3 +53,21 @@ MODIFY COLUMN id INT AUTO_INCREMENT;
 
 ALTER TABLE tasks
 ADD CONSTRAINT fk_project_id FOREIGN KEY (project_id) REFERENCES projects(id);
+
+-- Adicionando valores nas tabelas
+INSERT INTO users (name, email, password) VALUES 
+('Alice Johnson', 'alice.johnson@example.com', 'password123'),
+('Bob Smith', 'bob.smith@example.com', 'password456'),
+('Carol White', 'carol.white@example.com', 'password789');
+
+INSERT INTO projects (name, description, user_id, start_date, end_date) VALUES 
+('Project Alpha', 'Descrição do Projeto Alpha', 1, '2024-06-01', '2024-12-31'),
+('Project Beta', 'Descrição do Projeto Beta', 2, '2024-07-01', '2024-11-30'),
+('Project Gamma', 'Descrição do Projeto Gamma', 3, '2024-08-01', '2024-10-31');
+
+INSERT INTO tasks (name, description, project_id, creation_date, expiration_date, status) VALUES 
+('Task 1', 'Descrição da Tarefa 1', 1, '2024-06-05', '2024-06-15', 'Pendente'),
+('Task 2', 'Descrição da Tarefa 2', 1, '2024-06-10', '2024-06-20', 'Pendente'),
+('Task 3', 'Descrição da Tarefa 3', 2, '2024-07-05', '2024-07-15', 'Completo'),
+('Task 4', 'Descrição da Tarefa 4', 2, '2024-07-10', '2024-07-20', 'Pendente'),
+('Task 5', 'Descrição da Tarefa 5', 3, '2024-08-05', '2024-08-15', 'Progresso');
